@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-hello-world-ext
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+  selector:
+    app: java-hello-world
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-hello-world
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: java-hello-world
+  template:
+    metadata:
+      labels:
+        app: java-hello-world
+    spec:
+      containers:
+        - env:
+            - name: WELCOME_MSG
+              value: It's running on prod (kustomize prod)
+            - name: PORT
+              value: "8080"
+            - name: JAVA_TOOL_OPTIONS
+              value: -agentlib:jdwp=transport=dt_socket,server=y,address=5005,suspend=n,quiet=y
+          image: java-hello-world:latest
+          name: server
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            initialDelaySeconds: 5
+            tcpSocket:
+              port: 8080
