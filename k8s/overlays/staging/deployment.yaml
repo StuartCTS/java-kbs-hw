@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: java-hello-world
+        image: europe-west1-docker.pkg.dev/gcforum-demo/java-hw/java-hello-world:latest
         ports:
         - containerPort: 8080
         env:

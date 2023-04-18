@@ -22,7 +22,7 @@ private Environment environment;
      */
     @GetMapping("/")
     public String helloWorld(Model model) {
-        String message = "It's running!";
+        String message = "It's running in dev cluster!";
         String msg2 = environment.getProperty("welcome.msg");
         String toolOptions = environment.getProperty("java.tool.options");
 
