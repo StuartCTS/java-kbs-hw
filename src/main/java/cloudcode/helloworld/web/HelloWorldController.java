@@ -22,14 +22,14 @@ private Environment environment;
      */
     @GetMapping("/")
     public String helloWorld(Model model) {
-        String message = "It's running in dev cluster!";
+        // String message = "It's running in dev cluster!";
         String msg2 = environment.getProperty("welcome.msg");
         String toolOptions = environment.getProperty("java.tool.options");
 
         System.out.println("MSG from env property: " + msg2);
         System.out.println("java tool options: " + toolOptions);
         
-        model.addAttribute("message", message);
+        model.addAttribute("message", msg2);
         return "index";
     }
 }
