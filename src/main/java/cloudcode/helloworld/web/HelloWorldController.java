@@ -22,7 +22,7 @@ private Environment environment;
      */
     @GetMapping("/")
     public String helloWorld(Model model) {
-        // String message = "It's running in dev cluster!";
+        String javamessage = "Hello from Spring Boot!";
         String msg2 = environment.getProperty("welcome.msg");
         String toolOptions = environment.getProperty("java.tool.options");
 
@@ -30,6 +30,7 @@ private Environment environment;
         System.out.println("java tool options: " + toolOptions);
         
         model.addAttribute("message", msg2);
+        model.addAttribute("javamessage", javamessage);
         return "index";
     }
 }
