@@ -1,5 +1,3 @@
-# To learn more about the skaffold.yaml schema visit
-# https://skaffold.dev/docs/references/yaml/
 apiVersion: skaffold/v2beta19
 kind: Config
 build:
@@ -13,12 +11,6 @@ build:
       jib:
         args:
         - -Dmaven.test.skip=true
-
-# defines the Kubernetes manifests to deploy on each run
-# deploy:
-#   kubectl:
-#     manifests:
-#     - ./k8s/base/**.yaml
 deploy:
   kustomize:
     paths: 

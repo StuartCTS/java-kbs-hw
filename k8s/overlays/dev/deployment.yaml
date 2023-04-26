@@ -20,7 +20,7 @@ spec:
         - containerPort: 8080
         env:
         - name: WELCOME_MSG
-          value: "It's running on staging (kustomize dev)"
+          value: "It's still running on staging (kustomize dev)"
         - name: PORT
           value: "8080"
         # This environment variable enables debugging support for the container.

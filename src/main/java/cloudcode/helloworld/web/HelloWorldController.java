@@ -22,7 +22,7 @@ private Environment environment;
      */
     @GetMapping("/")
     public String helloWorld(Model model) {
-        String javamessage = "Hello from Spring Boot!";
+        String javamessage = "Hello time from Spring Boot!";
         String msg2 = environment.getProperty("welcome.msg");
         String toolOptions = environment.getProperty("java.tool.options");
 

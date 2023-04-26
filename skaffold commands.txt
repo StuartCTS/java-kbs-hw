@@ -1,0 +1,11 @@
+# skaffold commands
+
+# dev loop
+skaffold dev -v info --port-forward --filename /home/user/java-kbs-hw/skaffold.yaml --wait-for-deletions-max 2m0s --wait-for-connection --default-repo europe-west1-docker.pkg.dev/gcforum-demo/java-hw --profile dockerfile
+
+# build (and tag) image
+skaffold build --filename /home/user/java-kbs-hw/skaffold.yaml  --default-repo europe-west1-docker.pkg.dev/gcforum-demo/java-hw --profile dockerfile
+
+# render (staging)
+skaffold build -v info --filename /home/user/java-kbs-hw/skaffold.yaml  --default-repo europe-west1-docker.pkg.dev/gcforum-demo/java-hw --profile dockerfile
+
