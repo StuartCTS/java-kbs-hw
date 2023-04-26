@@ -7,5 +7,4 @@ skaffold dev -v info --port-forward --filename /home/user/java-kbs-hw/skaffold.y
 skaffold build --filename /home/user/java-kbs-hw/skaffold.yaml  --default-repo europe-west1-docker.pkg.dev/gcforum-demo/java-hw --profile dockerfile
 
 # render (staging)
-skaffold build -v info --filename /home/user/java-kbs-hw/skaffold.yaml  --default-repo europe-west1-docker.pkg.dev/gcforum-demo/java-hw --profile dockerfile
-
+skaffold render  --filename /home/user/java-kbs-hw/skaffold.yaml  --default-repo europe-west1-docker.pkg.dev/gcforum-demo/java-hw --profile staging > stage_render.yaml

@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: java-hello-world-ext
+  namespace: default
 spec:
   ports:
     - name: http
@@ -33,7 +34,8 @@ spec:
               value: "8080"
             - name: JAVA_TOOL_OPTIONS
               value: -agentlib:jdwp=transport=dt_socket,server=y,address=5005,suspend=n,quiet=y
-          image: java-hello-world:latest
+          image: europe-west1-docker.pkg.dev/gcforum-demo/java-hw/java-hello-world:latest
+          imagePullPolicy: Always
           name: server
           ports:
             - containerPort: 8080
